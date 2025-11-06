@@ -3,16 +3,63 @@
 <head>
     <meta charset="UTF-M">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Circuito Puente</title>
+    <title>Calculadora Eduin Rivera</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: grid;
             place-items: center;
             min-height: 90vh;
-            background-color: #f4f7f6;
+            background: linear-gradient(45deg, #007bff, #28a745, #000000, #007bff);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
             margin: 0;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .watermark {
+            position: absolute;
+            font-size: 60px; /* Reducido para móviles */
+            color: rgba(255, 255, 255, 0.08);
+            font-weight: bold;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 15s ease-in-out infinite;
+            white-space: nowrap;
+        }
+        /* Posiciones responsivas para watermarks */
+        .watermark:nth-child(1) { top: 5%; left: 5%; animation-delay: 0s; }
+        .watermark:nth-child(2) { top: 10%; right: 10%; animation-delay: 1s; }
+        .watermark:nth-child(3) { bottom: 10%; left: 10%; animation-delay: 2s; }
+        .watermark:nth-child(4) { bottom: 5%; right: 5%; animation-delay: 3s; }
+        .watermark:nth-child(5) { top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); animation-delay: 4s; }
+        .watermark:nth-child(6) { top: 20%; left: 30%; animation-delay: 5s; }
+        .watermark:nth-child(7) { top: 30%; right: 20%; animation-delay: 6s; }
+        .watermark:nth-child(8) { bottom: 20%; left: 40%; animation-delay: 7s; }
+        .watermark:nth-child(9) { bottom: 30%; right: 30%; animation-delay: 8s; }
+        .watermark:nth-child(10) { top: 70%; left: 15%; animation-delay: 9s; }
+        .watermark:nth-child(11) { top: 15%; right: 40%; animation-delay: 10s; }
+        .watermark:nth-child(12) { bottom: 40%; left: 20%; animation-delay: 11s; }
+        .watermark:nth-child(13) { bottom: 50%; right: 15%; animation-delay: 12s; }
+        .watermark:nth-child(14) { top: 40%; left: 60%; animation-delay: 13s; }
+        .watermark:nth-child(15) { top: 60%; right: 50%; animation-delay: 14s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.08; }
+            25% { transform: translateY(-15px) rotate(3deg); opacity: 0.12; }
+            50% { transform: translateY(0px) rotate(0deg); opacity: 0.08; }
+            75% { transform: translateY(15px) rotate(-3deg); opacity: 0.12; }
+        }
+        /* Media query para móviles: ajustar tamaño de watermarks */
+        @media (max-width: 768px) {
+            .watermark {
+                font-size: 40px; /* Más pequeño en móviles */
+            }
         }
         .container {
             width: 100%;
@@ -21,6 +68,8 @@
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 1;
         }
         h1 {
             text-align: center;
@@ -41,7 +90,7 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 6px;
-            box-sizing: border-box; /* Importante para el padding */
+            box-sizing: border-box;
             font-size: 16px;
         }
         button {
@@ -87,29 +136,46 @@
     </style>
 </head>
 <body>
+    <!-- Watermarks dinámicos distribuidos por toda la pantalla -->
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
+    <div class="watermark">@flexedwin</div>
 
     <div class="container">
-        <h1>Calculadora de Picoss</h1>
+        <h1>Calculadora BY Eduin Rivera</h1>
+
         <img src="https://i.ibb.co/mr3Khgtf/Captura-de-pantalla-2025-11-06-111553.jpg" alt="imagen de esa gonorrea de parcial" style="display: block; margin: 0 auto 20px; max-width: 100%; height: auto;">
         
         <div class="input-group">
             <label for="vm">Vm (Voltaje pico de entrada, en V)</label>
-            <input type="number" id="vm" placeholder="Ej: 90">
+            <input type="number" id="vm" placeholder="Ej: 52">
         </div>
 
         <div class="input-group">
-            <label for="r1">R1 (en kΩ)</label>
-            <input type="number" id="r1" placeholder="Ej: 47">
+            <label for="r1">R1 (en kΩohms)</label>
+            <input type="number" id="r1" placeholder="Ej: 27">
         </div>
 
         <div class="input-group">
-            <label for="r2">R2 (en kΩ)</label>
-            <input type="number" id="r2" placeholder="Ej: 2">
+            <label for="r2">R2 (en kΩohms)</label>
+            <input type="number" id="r2" placeholder="Ej: 9">
         </div>
 
         <div class="input-group">
-            <label for="ro">Ro (en kΩ)</label>
-            <input type="number" id="ro" placeholder="Ej: 1">
+            <label for="ro">Ro (en kΩohms)</label>
+            <input type="number" id="ro" placeholder="Ej: 2">
         </div>
         
         <button onclick="calcular()">Calcular</button>
@@ -159,9 +225,4 @@
     </script>
 
 </body>
-
 </html>
-
-
-
-
